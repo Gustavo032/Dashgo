@@ -8,7 +8,7 @@ const Chart = dynamic(()=>import("react-apexcharts"), {
 	ssr: false
 })
 
-const options: ApexOptions= {
+const options: ApexOptions = {
 	chart: {
 		toolbar: {
 			show:false,
@@ -56,7 +56,7 @@ const options: ApexOptions= {
 	}
 };
 
-const series= [
+const series = [
 	{
 		name: "series-1",
 		data: [31, 120, 10, 28, 61, 18, 109] 
