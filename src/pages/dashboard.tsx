@@ -3,6 +3,7 @@ import dynamic from "next/dynamic";
 import Header from "../components/Header";
 import { ApexOptions } from 'apexcharts';
 import { Sidebar } from "../components/SideBar/index";
+import { useState } from "react";
 
 const Chart = dynamic(()=>import("react-apexcharts"), {
 	ssr: false
@@ -65,7 +66,12 @@ const series = [
 
 export default function Dashboard(){
 
+	const [showChart, setShowChart] = useState(false);
 
+	setTimeout(() => {
+	  setShowChart(true);
+	}, 1);
+  
 	return(
 		<Flex direction="column" h="100vh">
 			<Header />
@@ -75,35 +81,39 @@ export default function Dashboard(){
 				<Sidebar/>
 
 				<SimpleGrid flex="1" gap="4" minChildWidth="320px" alignItems="flex-start">
-					<Box
-					 p={["6", "8"]}
-					 bg="gray.800"
-					 borderRadius={8}
-					 pb="4"
-					>
-						<Text fontSize="lg" mb="4">Inscritos da semana</Text>
-						<Chart
-						 type="area"
-						 height={160}
-						 options={options}
-						 series={series}
-						/>
-					</Box>
-					
-					<Box 
-					 p={["6", "8"]}
-					 bg="gray.800" 
-					 borderRadius={8}
-					 pb="4"
-					>
-						<Text fontSize="lg" mb="4">Taxa de abertura</Text>
-						<Chart 
-						 type="area" 
-						 height={160} 
-						 options={options}
-						 series={series} 
-						/>
-					</Box>
+					{showChart && (
+						<Box
+						p={["6", "8"]}
+						bg="gray.800"
+						borderRadius={8}
+						pb="4"
+						>
+							<Text fontSize="lg" mb="4">Inscritos da semana</Text>
+							<Chart
+							type="area"
+							height={160}
+							options={options}
+							series={series}
+							/>
+						</Box>
+					)}
+										
+					{showChart && (
+						<Box 
+						p={["6", "8"]}
+						bg="gray.800" 
+						borderRadius={8}
+						pb="4"
+						>
+							<Text fontSize="lg" mb="4">Taxa de abertura</Text>
+							<Chart 
+							type="area" 
+							height={160} 
+							options={options}
+							series={series} 
+							/>
+						</Box>
+					)}
 				</SimpleGrid>
 			</Flex>
 		</Flex>
