@@ -17,7 +17,6 @@ export function Pagination(){
 			 direction="row"
 			 spacing="2"
 			>
-		
 				<PaginationItem isCurrency={true} pageNumber={1}/>
 				<PaginationItem pageNumber={2}/>
 				<PaginationItem pageNumber={3}/>

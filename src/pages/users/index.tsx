@@ -40,7 +40,6 @@ export default function UserList(){
 								</Th>
 								<Th>Usuário</Th>
 								{isWideVersion && <Th>Data de cadastro</Th>}
-								<Th w="8"></Th>
 							</Tr>
 						</Thead>
 						<Tbody>
@@ -55,17 +54,6 @@ export default function UserList(){
 									</Box>
 								</Td>
 								{ isWideVersion && <Td>22 de outubro, 2021</Td>}
-								<Td>
-									<Button
-									 as="a"
-									 size="sm"
-									 fontSize="sm"
-									 colorScheme="purple"
-									 leftIcon={<Icon as={RiPencilLine} fontSize="16"/>}
-									>
-										{ isWideVersion ? "Editar" : ""}
-									</Button>
-								</Td>
 							</Tr>
 							<Tr>
 								<Td px={["4","4","6"]}>
@@ -78,17 +66,6 @@ export default function UserList(){
 									</Box>
 								</Td>
 								{ isWideVersion && <Td>22 de outubro, 2021</Td>}
-								<Td>
-									<Button
-									 as="a"
-									 size="sm"
-									 fontSize="sm"
-									 colorScheme="purple"
-									 leftIcon={<Icon as={RiPencilLine} fontSize="16"/>}
-									>
-										{ isWideVersion ? "Editar" : ""}
-									</Button>
-								</Td>
 							</Tr>
 							<Tr>
 								<Td px={["4","4","6"]}>
@@ -101,17 +78,6 @@ export default function UserList(){
 									</Box>
 								</Td>
 								{ isWideVersion && <Td>22 de outubro, 2021</Td>}
-								<Td>
-									<Button
-									 as="a"
-									 size="sm"
-									 fontSize="sm"
-									 colorScheme="purple"
-									 leftIcon={<Icon as={RiPencilLine} fontSize="16"/>}
-									>
-										{ isWideVersion ? "Editar" : ""}
-									</Button>
-								</Td>
 							</Tr>
 						</Tbody>
 					</Table>
