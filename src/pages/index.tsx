@@ -10,8 +10,8 @@ type SignInFormData = {
 }
 
 const signInFormSchema = yup.object().shape({
-	email: yup.string().required().email(),
-	password: yup.string().required()
+	email: yup.string().required('E-mail obrigatório').email('E-mail inválido'),
+	password: yup.string().required('Senha obrigatória')
 })
 
 export default function SingIn() {
@@ -63,7 +63,7 @@ export default function SingIn() {
 
 				</Stack>
 
-				<Button type="submit" mt="6" colorScheme="pink" size="lg">Entrar</Button>
+				<Button type="submit" mt="6" colorScheme="pink" size="lg" isLoading={formState.isSubmitting}>Entrar</Button>
 			</Flex>
         </Flex>
     );
