@@ -7,14 +7,17 @@ import NextLink from "next/link";
 import { useEffect, useState } from "react";
 import { QueryClient, useQuery } from "react-query";
 import { api } from "../../services/api";
-import {useUsers} from '../../services/hooks/useUsers'
+import {getUsers, useUsers} from '../../services/hooks/useUsers'
 import { queryClient } from "../../services/queryClient";
+import { GetServerSideProps } from "next";
 
 
-export default function UserList(){
+export default function UserList({users}){
 	const [page, setPage] = useState(1)
 
-	const {data, isLoading, isFetching, error} = useUsers(page)
+	const {data, isLoading, isFetching, error} = useUsers(page, {
+		initialData: users,
+	})
 
 
 	const isWideVersion = useBreakpointValue({
@@ -119,4 +122,14 @@ export default function UserList(){
 			</Flex>
 		</Box>
 	);
+}
+
+export const getServerSideProps: GetServerSideProps= async()=>{
+	const {users, totalCount} = await getUsers(1)
+
+	return{
+		props:{
+			users,
+		}
+	}
 }
